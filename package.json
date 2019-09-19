@@ -1,0 +1,19 @@
+{
+  "name": "layout-component",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "cross-fetch": "^3.0.4",
+    "exports-loader": "^0.7.0",
+    "imports-loader": "^0.8.0",
+    "next": "latest",
+    "pulse-framework": "https://github.com/jamiepine/pulse#pulsev2",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  },
+  "license": "ISC"
+}
