@@ -10,38 +10,39 @@ import My404Component from '../404';
 import Layout from '../../layout';
 
 import ErrorBoundary from '../../ErrorBoundary';
-import pulse from '../../pulse';
+import pulseInst from '../../pulse';
 
-class App extends React.Component {
-	render() {
-		const { props } = this;
-		const {
-			isAuthenticated,
-			themeName
-		} = props.pulse;
-		return (
-			<ErrorBoundary>
-				<BrowserRouter>
-					<Layout title={props.title} themeName={themeName}>
-						<Switch>
-							{
-								isAuthenticated
-								&& <Route></Route>
-							}
-							{
-								!isAuthenticated
-								&& <Route></Route>
-							}
-							<Route component={My404Component} />
-						</Switch>
-					</Layout>
-				</BrowserRouter>
-			</ErrorBoundary>
-		);
-	}
+function App(props) {
+	const {
+		pulse,
+		title
+	} = props;
+	const {
+		isAuthenticated,
+		themeName
+	} = pulse;
+	return (
+		<ErrorBoundary>
+			<BrowserRouter>
+				<Layout title={title} themeName={themeName}>
+					<Switch>
+						{
+							isAuthenticated
+							&& <Route></Route>
+						}
+						{
+							!isAuthenticated
+							&& <Route></Route>
+						}
+						<Route component={My404Component} />
+					</Switch>
+				</Layout>
+			</BrowserRouter>
+		</ErrorBoundary>
+	);
 }
 
-export default pulse.wrapped(App, (ctx) => {
+export default pulseInst.wrapped(App, (ctx) => {
 	return {
 		isAuthenticated: ctx.base.isAuthenticated,
 		themeName: ctx.base.themeName
