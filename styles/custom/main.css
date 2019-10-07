@@ -2,6 +2,10 @@ html, body {
     width: 100%;
     height: 100%;
 }
+.bg-gradient {
+    background: rgb(94,44,165);
+    background: linear-gradient(0deg, rgba(94,44,165,1) 0%, rgba(164,99,242,1) 100%);
+}
 .top-50 {
     top: 50%;
 }
@@ -14,6 +18,6 @@ html, body {
 .right-50 {
     right: 50%;
 }
-.magic {
+.pos-magic {
     transform: translate(-50%,-50%);
 }

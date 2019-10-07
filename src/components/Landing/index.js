@@ -22,8 +22,8 @@ function App(props) {
 
 	return (
 		<>
-			<div className="absolute left-0 top-0 w-50 h-100">
-				<div className="absolute w-60 mw-100 top-50 left-50 magic">
+			<div className="absolute left-0 top-0 w-50 h-100 bg-gradient">
+				<div className="absolute w-60 mw-100 top-50 left-50 pos-magic">
 					<h1 className="f1 mb0">letswatch.video</h1>
 					<h2 className="f4 tracked">Shared browser streaming service</h2>
 					<p>Not available for public yet.</p>
@@ -37,15 +37,15 @@ function App(props) {
 					<button
 						type="button"
 						onClick={() => toggleJoin(!joinState)}
-						className="dib link tracked color-inherit pv2 ph3 ml2 nowrap lh-solid pointer br2 ba b--gray bg-gray"
+						className="dib link tracked color-inherit pv2 ph3 ml2 nowrap lh-solid pointer br2 ba b--purple bg-purple"
 					>
 						Join Room
 					</button>
 					{
 						loginState && (
 							<form className="pv3 ba b--transparent ph0 mh0 measure">
-								<input type="text" onChange={(e) => setUsername(e.value)} value={ username } className="db f6 f5-l pa2 input-reset ba br2 bg-white w-100 w-75-m w-80-l" name="username" placeholder="Username" />
-								<input type="text" onChange={(e) => setPassword(e.value)} value={ password } className="db f6 f5-l pa2 input-reset ba br2 bg-white w-100 w-75-m w-80-l" name="username" placeholder="Password" />
+								<input type="text" onChange={(e) => setUsername(e.value)} value={ username } className="db f6 f5-l pa2 mv1 input-reset ba b--black-80 black-80 br2 bg-white w-100 w-75-m w-80-l" name="username" placeholder="Username" />
+								<input type="text" onChange={(e) => setPassword(e.value)} value={ password } className="db f6 f5-l pa2 mv1 input-reset ba b--black-80 black-80 br2 bg-white w-100 w-75-m w-80-l" name="username" placeholder="Password" />
 								<button
 									type="button"
 									onClick={() => pulse.accounts.login(username, password)}
