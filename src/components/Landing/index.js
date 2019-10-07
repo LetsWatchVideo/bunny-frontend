@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 import pulseInst from '../../pulse';
 
@@ -7,19 +7,63 @@ function App(props) {
 		pulse,
 	} = props;
 	const {
-		authed
+		authed,
 	} = pulse;
+
+	const [loginState, toggleLogin] = useState(false);
+	const [joinState, toggleJoin] = useState(false);
+
+	const [username, setUsername] = useState('');
+	const [password, setPassword] = useState('');
+	useEffect(() => {
+		// setUsername('hi');
+		// setPassword('***');
+	}, []);
+
 	return (
 		<>
 			<div className="absolute left-0 top-0 w-50 h-100">
 				<div className="absolute w-60 mw-100 top-50 left-50 magic">
-					<h2 className="f1 mb0">letswatch.video</h2>
+					<h1 className="f1 mb0">letswatch.video</h1>
 					<h2 className="f4 tracked">Shared browser streaming service</h2>
+					<p>Not available for public yet.</p>
+					<button
+						type="button"
+						onClick={() => toggleLogin(!loginState)}
+						className="dib link tracked color-inherit pv2 ph3 nowrap lh-solid pointer br2 ba b--gray bg-gray"
+					>
+						Log In
+					</button>
+					<button
+						type="button"
+						onClick={() => toggleJoin(!joinState)}
+						className="dib link tracked color-inherit pv2 ph3 ml2 nowrap lh-solid pointer br2 ba b--gray bg-gray"
+					>
+						Join Room
+					</button>
+					{
+						loginState && (
+							<form className="pv3 ba b--transparent ph0 mh0 measure">
+								<input type="text" onChange={(e) => setUsername(e.value)} value={ username } className="db f6 f5-l pa2 input-reset ba br2 bg-white w-100 w-75-m w-80-l" name="username" placeholder="Username" />
+								<input type="text" onChange={(e) => setPassword(e.value)} value={ password } className="db f6 f5-l pa2 input-reset ba br2 bg-white w-100 w-75-m w-80-l" name="username" placeholder="Password" />
+								<button
+									type="button"
+									onClick={() => pulse.accounts.login(username, password)}
+									className="link tracked color-inherit flex pv2 ph3 nowrap lh-solid pointer br2 ba b--blue bg-blue"
+								>
+									Log In
+								</button>
+							</form>
+						)
+					}
 					{authed}
 				</div>
 			</div>
 			<div className="absolute left-50 top-0 w-50 h-100">
 				<div className="mw-100 h-100 cover" style={{ backgroundImage: 'url(http://placekitten.com/g/1920/1080)' }}>
+					<div className="absolute bottom-0 left-0">
+						<a className="github-button" href="https://github.com/LetsWatchVideo" data-color-scheme="no-preference: dark; light: light; dark: dark;" data-size="large" data-show-count="false" aria-label="Follow @LetsWatchVideo on GitHub">Follow @LetsWatchVideo</a>
+					</div>
 				</div>
 			</div>
 		</>
@@ -29,6 +73,6 @@ function App(props) {
 export default pulseInst.wrapped(App, (ctx) => {
 	console.log(ctx);
 	return {
-		authed: ctx.accounts.authed
+		accounts: ctx.accounts
 	};
 });
