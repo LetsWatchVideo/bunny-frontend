@@ -6,6 +6,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 
 
 import My404Component from '../404';
+import LandingComponent from '../Landing';
 
 import Layout from '../../layout';
 
@@ -28,11 +29,11 @@ function App(props) {
 					<Switch>
 						{
 							isAuthenticated
-							&& <Route></Route>
+							&& <Route />
 						}
 						{
 							!isAuthenticated
-							&& <Route></Route>
+							&& <Route path="/" component={LandingComponent} />
 						}
 						<Route component={My404Component} />
 					</Switch>

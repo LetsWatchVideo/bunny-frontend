@@ -11,18 +11,14 @@ export default class LoggedoutLayout extends React.Component {
 	render() {
 		const {
 			children,
-			title,
-			themeName
+			title
 		} = this.props;
 		return (
 			<>
 				<Helmet {...config.layout} title={ title } />
-
-				<p>
-theme is&nbsp;
-					{themeName}
-				</p>
-				<div>{children}</div>
+				<section className="w-100 vh-100 flex flex-column">
+					{children}
+				</section>
 			</>
 		);
 	}
