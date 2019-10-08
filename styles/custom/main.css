@@ -21,3 +21,7 @@ html, body {
 .pos-magic {
     transform: translate(-50%,-50%);
 }
+
+.site-footer li a {
+    text-shadow: 3px 2px 3px #000;
+}

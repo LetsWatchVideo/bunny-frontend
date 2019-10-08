@@ -74,9 +74,14 @@ function App(props) {
 			</div>
 			<div className="absolute left-50 top-0 w-50 h-100">
 				<div className="mw-100 h-100 cover" style={{ backgroundImage: 'url(http://placekitten.com/g/1920/1080)' }}>
-					<div className="absolute bottom-0 left-0">
+					<footer className="site-footer absolute bottom-0 left-0 white">
+						<ul className="list flex flex-row pa0">
+							<li><a href="/about" className="link color-inherit pl2">About</a></li>
+							<li><a href="/terms" className="link color-inherit pl2">Terms of Service</a></li>
+							<li><a href="/dmca" className="link color-inherit pl2">DMCA</a></li>
+						</ul>
 						<a className="github-button" href="https://github.com/LetsWatchVideo" data-color-scheme="no-preference: dark; light: light; dark: dark;" data-size="large" data-show-count="false" aria-label="Follow @LetsWatchVideo on GitHub">Follow @LetsWatchVideo</a>
-					</div>
+					</footer>
 				</div>
 			</div>
 		</>

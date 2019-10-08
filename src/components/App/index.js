@@ -31,7 +31,7 @@ function App(props) {
 							isAuthenticated
 							&& <Route />
 						}
-						<Route path="/" component={LandingComponent} />
+						<Route path="/" exact component={LandingComponent} />
 						<Route component={My404Component} />
 					</Switch>
 				</Layout>
