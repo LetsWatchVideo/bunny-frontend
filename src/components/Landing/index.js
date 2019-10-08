@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
+import { Link } from 'react-router-dom';
+
 import pulseInst from '../../pulse';
 
 function App(props) {
@@ -76,9 +78,9 @@ function App(props) {
 				<div className="mw-100 h-100 cover" style={{ backgroundImage: 'url(http://placekitten.com/g/1920/1080)' }}>
 					<footer className="site-footer absolute bottom-0 left-0 white">
 						<ul className="list flex flex-row pa0">
-							<li><a href="/about" className="link color-inherit pl2">About</a></li>
-							<li><a href="/terms" className="link color-inherit pl2">Terms of Service</a></li>
-							<li><a href="/dmca" className="link color-inherit pl2">DMCA</a></li>
+							<li><Link to="/about" className="link color-inherit pl2">About</Link></li>
+							<li><Link to="/terms" className="link color-inherit pl2">Terms of Service</Link></li>
+							<li><Link to="/dmca" className="link color-inherit pl2">DMCA</Link></li>
 						</ul>
 						<a className="github-button" href="https://github.com/LetsWatchVideo" data-color-scheme="no-preference: dark; light: light; dark: dark;" data-size="large" data-show-count="false" aria-label="Follow @LetsWatchVideo on GitHub">Follow @LetsWatchVideo</a>
 					</footer>
