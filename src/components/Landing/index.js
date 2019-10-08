@@ -56,7 +56,7 @@ function App(props) {
 						Join Room
 					</button>
 					{
-						loginState && isAuthenticated && (
+						loginState && !isAuthenticated && (
 							<form className="pv3 ba b--transparent ph0 mh0 measure">
 								<input type="text" onChange={(e) => setUsername(e.value)} value={ username } className="db f6 f5-l pa2 mv1 input-reset ba b--black-80 black-80 br2 bg-white w-100 w-75-m w-80-l" name="username" placeholder="Username" />
 								<input type="text" onChange={(e) => setPassword(e.value)} value={ password } className="db f6 f5-l pa2 mv1 input-reset ba b--black-80 black-80 br2 bg-white w-100 w-75-m w-80-l" name="username" placeholder="Password" />
