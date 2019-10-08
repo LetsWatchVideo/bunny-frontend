@@ -9,20 +9,20 @@ export default {
 	persist: ['currentAccountID', 'lastEmail', 'accessToken', 'refreshToken'],
 	routes: {
 		login(request, username, password) {
-			return request.post('auth/login/', {
+			return request.post('auth/login', {
 				username,
 				password
 			});
 		},
 		register(request, username, email, password) {
-			return request.post('auth/register/', {
+			return request.post('auth/register', {
 				username,
 				email,
 				password
 			});
 		},
 		getMe(request, token) {
-			return request.get('auth/me/', {
+			return request.get('auth/me', {
 				Authorization: token
 			});
 		}
