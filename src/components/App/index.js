@@ -31,10 +31,7 @@ function App(props) {
 							isAuthenticated
 							&& <Route />
 						}
-						{
-							!isAuthenticated
-							&& <Route path="/" component={LandingComponent} />
-						}
+						<Route path="/" component={LandingComponent} />
 						<Route component={My404Component} />
 					</Switch>
 				</Layout>

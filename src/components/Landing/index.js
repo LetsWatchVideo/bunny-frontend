@@ -7,7 +7,7 @@ function App(props) {
 		pulse,
 	} = props;
 	const {
-		authed,
+		isAuthenticated,
 	} = pulse;
 
 	const [loginState, toggleLogin] = useState(false);
@@ -27,13 +27,27 @@ function App(props) {
 					<h1 className="f1 mb0">letswatch.video</h1>
 					<h2 className="f4 tracked">Shared browser streaming service</h2>
 					<p>Not available for public yet.</p>
-					<button
-						type="button"
-						onClick={() => toggleLogin(!loginState)}
-						className="dib link tracked color-inherit pv2 ph3 nowrap lh-solid pointer br2 ba b--gray bg-gray"
-					>
-						Log In
-					</button>
+					{
+						!isAuthenticated && (
+							<button
+								type="button"
+								onClick={() => toggleLogin(!loginState)}
+								className="dib link tracked color-inherit pv2 ph3 nowrap lh-solid pointer br2 ba b--gray bg-gray"
+							>
+							Log In
+							</button>
+)
+					}
+					{
+						isAuthenticated && (
+							<button
+								type="button"
+								className="dib link tracked color-inherit pv2 ph3 nowrap lh-solid pointer br2 ba b--gray bg-gray"
+							>
+							Create Room
+							</button>
+)
+					}
 					<button
 						type="button"
 						onClick={() => toggleJoin(!joinState)}
@@ -42,7 +56,7 @@ function App(props) {
 						Join Room
 					</button>
 					{
-						loginState && (
+						loginState && isAuthenticated && (
 							<form className="pv3 ba b--transparent ph0 mh0 measure">
 								<input type="text" onChange={(e) => setUsername(e.value)} value={ username } className="db f6 f5-l pa2 mv1 input-reset ba b--black-80 black-80 br2 bg-white w-100 w-75-m w-80-l" name="username" placeholder="Username" />
 								<input type="text" onChange={(e) => setPassword(e.value)} value={ password } className="db f6 f5-l pa2 mv1 input-reset ba b--black-80 black-80 br2 bg-white w-100 w-75-m w-80-l" name="username" placeholder="Password" />
@@ -56,7 +70,6 @@ function App(props) {
 							</form>
 						)
 					}
-					{authed}
 				</div>
 			</div>
 			<div className="absolute left-50 top-0 w-50 h-100">
@@ -73,6 +86,7 @@ function App(props) {
 export default pulseInst.wrapped(App, (ctx) => {
 	console.log(ctx);
 	return {
+		isAuthenticated: ctx.base.isAuthenticated,
 		accounts: ctx.accounts
 	};
 });
