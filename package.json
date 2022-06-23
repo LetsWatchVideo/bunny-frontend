@@ -83,7 +83,7 @@
     "html-webpack-hot-plugin": "^1.1.1",
     "html-webpack-plugin": "^4.0.0-alpha",
     "imports-loader": "^0.8.0",
-    "jsdom": "^15.1.1",
+    "jsdom": "^16.5.0",
     "mocha": "^6.1.4",
     "react-addons-test-utils": "^16.0.0-alpha.3",
     "react-hot-loader": "^4.0.0-beta.22",
